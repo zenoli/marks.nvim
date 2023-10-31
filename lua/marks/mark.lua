@@ -1,5 +1,6 @@
 local a = vim.api
 local utils = require'marks.utils'
+local icons = require 'marks.icons'
 
 local Mark = {}
 
@@ -389,7 +390,7 @@ function Mark:add_sign(bufnr, text, line, id)
   else -- builtin
     priority = self.opt.priority[3]
   end
-  utils.add_sign(bufnr, text, line, id, "MarkSigns", priority)
+  utils.add_sign(bufnr, icons[text] or text, line, id, "MarkSigns", priority)
 end
 
 function Mark.new()
